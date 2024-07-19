@@ -1022,7 +1022,7 @@ void UConvaiGRPCSubmitFeedbackProxy::BeginDestroy()
 	client_context.TryCancel();
 	stub_.reset();
 	UE_LOG(ConvaiGRPCFeedBackLog, Log,
-		TEXT("On Stream Finish | Interaction ID : %s | Feedback Text : %s | ThumbsUp: %s"),
+		TEXT("On Stream Finish | Interaction ID : %s | Feedback Text : %s | ThumbsUp: %hs"),
 		*InteractionID,
 		*FeedbackText,
 		ThumbsUp ? "True" : "False");
@@ -1032,7 +1032,7 @@ void UConvaiGRPCSubmitFeedbackProxy::BeginDestroy()
 void UConvaiGRPCSubmitFeedbackProxy::LogAndEcecuteFailure(FString FuncName)
 {
 	UE_LOG(ConvaiGRPCFeedBackLog, Warning,
-		TEXT("%s: Status:%s | Debug Log:%s | Error message:%s | Error Details:%s | Error Code:%i | Interaction ID : %s | Feedback Text : %s | ThumbsUp: %s"),
+		TEXT("%s: Status:%s | Debug Log:%s | Error message:%s | Error Details:%s | Error Code:%i | Interaction ID : %s | Feedback Text : %s | ThumbsUp: %hs"),
 		*FString(FuncName),
 		*FString(status.ok() ? "Ok" : "Not Ok"),
 		*FString(reply->DebugString().c_str()),
